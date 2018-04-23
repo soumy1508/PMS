@@ -11,7 +11,7 @@ namespace PMS.Controllers
 {
     public class ProjectController : Controller
     {
-        private readonly PMSDbContext context;
+        private PMSDbContext context;
 
         public ProjectController(PMSDbContext dbContext)
         {
@@ -28,7 +28,6 @@ namespace PMS.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-  
             AddProjectViewModel addProjectViewModel = new AddProjectViewModel();
             return View(addProjectViewModel);
         }
@@ -42,7 +41,10 @@ namespace PMS.Controllers
                 Project newProject = new Project
                 {
                     Name = addProjectViewModel.Name,
-                    Description = addProjectViewModel.Description
+                    Description = addProjectViewModel.Description,
+                    Budget = addProjectViewModel.Budget
+                    
+
                 };
 
                 context.Projects.Add(newProject);

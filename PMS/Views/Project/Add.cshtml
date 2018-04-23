@@ -1,9 +1,7 @@
 ﻿@model PMS.ViewModels.AddProjectViewModel
-@{
-    ViewData["Title"] = "Add";
-}
 
-<h2>Add</h2>
+
+<h2>Add Project</h2>
 
 
 <form asp-controller="Project" asp-action="Add" method="post">
@@ -17,6 +15,24 @@
         <label asp-for="Description"></label>
         <input class="form-control" asp-for="Description" />
         <span asp-validation-for="Description"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="StartDate"></label>
+        <input class="form-control" asp-for="StartDate" />
+        <span asp-validation-for="StartDate"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EndDate"></label>
+        <input class="form-control" asp-for="EndDate" />
+        <span asp-validation-for="EndDate"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Budget"></label>
+        <input class="form-control" asp-for="Budget" />
+        <span asp-validation-for="Budget"></span>
     </div>
 
     <input type="submit" value="Add Project" />

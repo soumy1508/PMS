@@ -15,6 +15,25 @@ namespace PMS.ViewModels
         [Required(ErrorMessage = "You must give your project a description")]
         public string Description { get; set; }
 
+        [Required]
+        [Display(Name = "Budget")]
+        public int Budget { get; set; }
+
+
+        [Required]
+        [Display(Name = "StartDate")]
+        public int StartDate { get; set; }
+        
+
+        [Required]
+        [Display(Name = "EndDate")]
+        public int EndDate { get; set; }
+
         public int ID { get; set; }
+
+
+        public AddProjectViewModel()
+        {
+        }
     }
 }
