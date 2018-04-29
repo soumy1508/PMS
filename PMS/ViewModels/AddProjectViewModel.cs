@@ -22,6 +22,7 @@ namespace PMS.ViewModels
 
         [Required]
         [Display(Name = "StartDate")]
+        [DataType(DataType.Date)]
         public int StartDate { get; set; }
         
 

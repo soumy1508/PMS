@@ -42,8 +42,10 @@ namespace PMS.Controllers
                 {
                     Name = addProjectViewModel.Name,
                     Description = addProjectViewModel.Description,
-                    Budget = addProjectViewModel.Budget
-                    
+                    Budget = addProjectViewModel.Budget,
+                    //StartDate = addProjectViewModel.StartDate,
+                    //EndDate = addProjectViewModel.EndDate
+
 
                 };
 
@@ -54,6 +56,27 @@ namespace PMS.Controllers
             };
 
             return View(addProjectViewModel);
+        }
+
+        public IActionResult Delete()
+        {
+            ViewBag.title = "Delete Projects";
+            ViewBag.projects = context.Projects.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int[] projectIds)
+        {
+            foreach (int projectId in projectIds)
+            {
+                Project theProject = context.Projects.Single(c => c.ID == projectId);
+                context.Projects.Remove(theProject);
+            }
+
+            context.SaveChanges();
+
+            return Redirect("/Project");
         }
     }
 }
